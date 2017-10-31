@@ -44,4 +44,22 @@ myCompleteApiCall = timeURL + requestURL
 
 myData = urllib.request.urlopen(myCompleteApiCall).read().decode('utf-8')
 myDataJson = json.loads(myData)
-print(myDataJson)
+
+worked = myDataJson.get("worklogs").get("items")
+
+print("This month:")
+for i in worked:
+    seconds = int(i.get("length"))
+    m, s = divmod(seconds, 60)
+    h, m = divmod(m, 60)
+    duration = "%d:%02d:%02d" % (h, m, s)
+    print("{}: {}".format(i.get("task_name"), duration))
+    
+#  @TODO similar print out for projects only
+#  @TODO display calendar of total time each day in the month
+#  @TODO Average last 5 days
+#  @TODO Average last 7 days 
+#  @TODO Max total time 'best time' last month
+#  @TODO Max total time 'best total time worked' this week
+#  @TODO some neat graphs
+
