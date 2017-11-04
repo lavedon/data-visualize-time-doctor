@@ -3,6 +3,7 @@ import urllib.request
 import urllib.error
 import numpy
 import matplotlib as mp
+import time 
 
 # Picture of the Enterprise
 
@@ -54,7 +55,13 @@ for i in worked:
     h, m = divmod(m, 60)
     duration = "%d:%02d:%02d" % (h, m, s)
     print("{}: {}".format(i.get("task_name"), duration))
-    
+
+def today_call():
+    """Gets today and formats it in the correct format for the timedoctor API"""
+    api_pass = time.strftime("%Y-%m-%d", time.gmtime())
+    return api_pass
+
+
 #  @TODO similar print out for projects only
 #  @TODO display calendar of total time each day in the month
 #  @TODO Average last 5 days
