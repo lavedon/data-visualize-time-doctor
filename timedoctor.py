@@ -60,7 +60,8 @@ def today_call():
     """Gets today and formats it in the correct format for the timedoctor API"""
     api_pass = time.strftime("%Y-%m-%d", time.gmtime())
     return api_pass
-
+#  @TODO Put function here that gets complete work log today
+#  def workLogToday = timeU
 
 #  @TODO similar print out for projects only
 #  @TODO display calendar of total time each day in the month
